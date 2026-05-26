@@ -22,10 +22,7 @@ function bootstrap() {
     const config = app.get(ConfigService);
 
     app.use(helmet());
-    app.enableCors({
-      origin: config.get<string>('CORS_ORIGIN', '*').split(','),
-      credentials: true,
-    });
+    app.enableCors({ origin: '*' });
 
     app.setGlobalPrefix(config.get<string>('APP_GLOBAL_PREFIX', 'api'));
     app.enableVersioning({
