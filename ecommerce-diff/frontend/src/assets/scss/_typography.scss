@@ -1,0 +1,68 @@
+.aura-display-xl {
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: $fs-display-xl;
+  line-height: 0.95;
+  letter-spacing: $tracking-tight;
+}
+
+.aura-display-lg {
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: $fs-display-lg;
+  line-height: 1;
+  letter-spacing: $tracking-tight;
+}
+
+.aura-display-md {
+  font-family: $font-display;
+  font-weight: 600;
+  font-size: $fs-display-md;
+  line-height: 1.05;
+  letter-spacing: $tracking-snug;
+}
+
+.aura-headline {
+  font-family: $font-display;
+  font-weight: 500;
+  font-size: $fs-headline;
+  line-height: 1.2;
+  letter-spacing: $tracking-snug;
+}
+
+.aura-title {
+  font-family: $font-display;
+  font-weight: 500;
+  font-size: $fs-title;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.aura-body-lg {
+  font-family: $font-body;
+  font-size: $fs-body-lg;
+  line-height: 1.6;
+  color: $color-on-bg-muted;
+}
+
+.aura-body {
+  font-family: $font-body;
+  font-size: $fs-body;
+  line-height: 1.5;
+  color: $color-on-bg-muted;
+}
+
+.aura-label {
+  font-family: $font-label;
+  font-size: $fs-label;
+  text-transform: uppercase;
+  letter-spacing: $tracking-wide;
+  color: $color-on-bg-muted;
+}
+
+.aura-mono {
+  font-family: $font-label;
+  font-size: $fs-mini;
+  letter-spacing: $tracking-mono;
+  color: $color-on-bg-faint;
+}

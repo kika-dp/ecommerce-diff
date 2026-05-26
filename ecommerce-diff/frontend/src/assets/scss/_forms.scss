@@ -1,0 +1,79 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+
+  &__label {
+    font-family: $font-label;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: $tracking-wide;
+    color: $color-on-bg-muted;
+  }
+
+  &__input,
+  &__textarea,
+  &__select {
+    width: 100%;
+    padding: 14px 18px;
+    border-radius: $radius-md;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid $color-border;
+    color: $color-on-bg;
+    transition: border-color $dur-base $ease-snap, background $dur-base $ease-snap,
+      box-shadow $dur-base $ease-snap;
+    font-size: 15px;
+
+    &::placeholder {
+      color: $color-on-bg-faint;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $color-white;
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow: 0 0 0 1px $color-white inset, $glow-soft;
+    }
+  }
+
+  &__textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  &__hint {
+    font-family: $font-body;
+    font-size: 12px;
+    color: $color-on-bg-faint;
+  }
+
+  &__error {
+    font-family: $font-body;
+    font-size: 12px;
+    color: $color-danger;
+  }
+}
+
+.otp-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: $space-3;
+
+  input {
+    width: 100%;
+    aspect-ratio: 1;
+    text-align: center;
+    border-radius: $radius-md;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid $color-border;
+    color: $color-white;
+    font-family: $font-display;
+    font-size: 22px;
+
+    &:focus {
+      outline: none;
+      border-color: $color-white;
+      box-shadow: $glow-soft;
+    }
+  }
+}

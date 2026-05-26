@@ -1,0 +1,450 @@
+// AURA component primitives -- header, sidebar, cards, badges, hero, tables
+
+.material-symbols-outlined,
+.icon {
+  font-family: 'Material Symbols Outlined';
+  font-variation-settings: 'opsz' 24, 'wght' 400, 'FILL' 0, 'GRAD' 0;
+  display: inline-flex;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+// --------- Header ---------
+.aura-header {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - #{$gutter-mobile * 2});
+  max-width: $container-max;
+  z-index: 40;
+  @include glass(0.7, 24px);
+  border-radius: 999px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+
+  &__logo {
+    font-family: $font-display;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: $tracking-tight;
+  }
+
+  &__nav {
+    display: none;
+    gap: $space-8;
+
+    @include media-up($bp-md) {
+      display: flex;
+    }
+
+    a {
+      font-family: $font-label;
+      font-size: 12px;
+      letter-spacing: $tracking-wide;
+      text-transform: uppercase;
+      color: $color-on-bg-muted;
+      transition: color $dur-fast;
+
+      &.active,
+      &:hover {
+        color: $color-white;
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: $space-2;
+    align-items: center;
+  }
+
+  &__icon-btn {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-on-bg;
+    border-radius: 999px;
+    position: relative;
+    transition: background $dur-fast;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 999px;
+    background: $color-white;
+    color: $color-black;
+    font-family: $font-label;
+    font-size: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+  }
+}
+
+// --------- Hero ---------
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 120px $gutter-mobile $space-12;
+
+  @include media-up($bp-lg) {
+    padding: 160px $gutter-desktop 120px;
+  }
+
+  &__backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.55;
+    background:
+      radial-gradient(80% 60% at 50% 40%, rgba(255, 255, 255, 0.08), transparent 60%),
+      linear-gradient(180deg, rgba(0,0,0,0.0), $color-bg 85%),
+      url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1800&q=80') center/cover;
+    filter: grayscale(0.4) contrast(1.05);
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $space-6;
+  }
+
+  &__eyebrow {
+    @extend .aura-label;
+    color: $color-on-bg-muted;
+  }
+
+  &__cta {
+    display: flex;
+    gap: $space-3;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: $space-4;
+  }
+}
+
+// --------- Product card ---------
+.product-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  transition: transform $dur-base $ease-cinematic, box-shadow $dur-base $ease-cinematic,
+    border-color $dur-base $ease-cinematic;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: $color-border-strong;
+    box-shadow: $shadow-card;
+  }
+
+  &__media {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    background: $color-bg-elev-2;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform $dur-slow $ease-cinematic;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 50%;
+      background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.6));
+      pointer-events: none;
+    }
+  }
+
+  &:hover &__media img {
+    transform: scale(1.05);
+  }
+
+  &__badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    @extend .aura-label;
+    color: $color-on-bg;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid $color-border;
+    z-index: 1;
+  }
+
+  &__wishlist {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.6);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: $color-white;
+    z-index: 1;
+    border: 1px solid $color-border;
+    transition: background $dur-fast;
+
+    &:hover {
+      background: $color-white;
+      color: $color-black;
+    }
+
+    &.is-active {
+      background: $color-white;
+      color: $color-black;
+    }
+  }
+
+  &__body {
+    padding: $space-5;
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+  }
+
+  &__brand {
+    @extend .aura-label;
+  }
+
+  &__title {
+    font-family: $font-display;
+    font-size: 18px;
+    font-weight: 500;
+    color: $color-white;
+    letter-spacing: $tracking-snug;
+  }
+
+  &__price {
+    display: flex;
+    gap: $space-3;
+    align-items: baseline;
+
+    .now {
+      font-family: $font-display;
+      font-size: 18px;
+      color: $color-white;
+    }
+
+    .was {
+      font-family: $font-body;
+      font-size: 13px;
+      color: $color-on-bg-faint;
+      text-decoration: line-through;
+    }
+  }
+}
+
+// --------- Stat / metric cards ---------
+.stat-card {
+  @extend .glass-card;
+  display: flex;
+  flex-direction: column;
+  gap: $space-3;
+
+  &__label {
+    @extend .aura-label;
+  }
+
+  &__value {
+    font-family: $font-display;
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: $tracking-snug;
+    color: $color-white;
+  }
+
+  &__hint {
+    font-size: 12px;
+    color: $color-on-bg-faint;
+  }
+}
+
+// --------- Badges ---------
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-family: $font-label;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: $tracking-wide;
+  border: 1px solid $color-border;
+
+  &--pending { color: $color-warning; }
+  &--confirmed { color: $color-white; }
+  &--shipped { color: #9bb6ff; }
+  &--delivered { color: $color-success; }
+  &--cancelled { color: $color-danger; }
+  &--active { color: $color-success; }
+  &--inactive { color: $color-danger; }
+}
+
+// --------- Tables ---------
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+
+  th,
+  td {
+    text-align: left;
+    padding: $space-4 $space-5;
+    border-bottom: 1px solid $color-border;
+  }
+
+  th {
+    @extend .aura-label;
+    font-weight: 500;
+    color: $color-on-bg-muted;
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  td {
+    color: $color-on-bg;
+  }
+
+  tr:hover td {
+    background: rgba(255, 255, 255, 0.02);
+  }
+}
+
+// --------- Sidebar (admin) ---------
+.aura-sidebar {
+  background: $color-bg-elev-1;
+  border-right: 1px solid $color-border;
+  padding: $space-8 $space-5;
+  display: flex;
+  flex-direction: column;
+  gap: $space-8;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+
+  &__brand {
+    font-family: $font-display;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: $tracking-tight;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: $space-2;
+  }
+
+  &__group-title {
+    @extend .aura-label;
+    color: $color-on-bg-faint;
+    padding: 0 $space-3;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: $space-3;
+    padding: 10px $space-3;
+    border-radius: $radius-md;
+    color: $color-on-bg-muted;
+    transition: background $dur-fast, color $dur-fast;
+    font-size: 14px;
+
+    &:hover {
+      color: $color-white;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    &.active {
+      color: $color-black;
+      background: $color-white;
+    }
+  }
+
+  @media (max-width: $bp-lg) {
+    display: none;
+  }
+}
+
+// --------- Toast helpers (style react-hot-toast surface) ---------
+.aura-toast {
+  font-family: $font-body;
+  background: $color-bg-elev-2;
+  border: 1px solid $color-border;
+  color: $color-white;
+}
+
+// --------- Top loader bar (route changes) ---------
+.route-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: $color-white;
+  z-index: 999;
+  transition: width $dur-base $ease-snap;
+}
+
+// --------- Filter chip ---------
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid $color-border;
+  background: rgba(255, 255, 255, 0.02);
+  color: $color-on-bg;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background $dur-fast, border-color $dur-fast;
+
+  &:hover {
+    border-color: $color-border-strong;
+  }
+
+  &.active {
+    background: $color-white;
+    color: $color-black;
+    border-color: $color-white;
+  }
+}

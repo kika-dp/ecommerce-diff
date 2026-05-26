@@ -1,0 +1,32 @@
+export const ROUTES = {
+  AUTH: {
+    LOGIN: '/login',
+    REGISTER: '/register',
+    FORGOT: '/forgot-password',
+    VERIFY_OTP: '/verify-otp',
+    RESET: '/reset-password',
+  },
+  USER: {
+    HOME: '/',
+    SHOP: '/shop',
+    SHOP_CATEGORY: '/shop/:slug',
+    PRODUCT: '/product/:slug',
+    CART: '/cart',
+    CHECKOUT: '/checkout',
+    WISHLIST: '/wishlist',
+    PROFILE: '/profile',
+    ORDERS: '/orders',
+    ORDER_DETAIL: '/orders/:id',
+  },
+  ADMIN: {
+    LOGIN: '/admin/login',
+    DASHBOARD: '/admin',
+    USERS: '/admin/users',
+    PRODUCT_TYPES: '/admin/product-types',
+    PRODUCTS: '/admin/products',
+    PRODUCT_NEW: '/admin/products/new',
+    PRODUCT_EDIT: '/admin/products/:id',
+    ORDERS: '/admin/orders',
+    ORDER_DETAIL: '/admin/orders/:id',
+  },
+};

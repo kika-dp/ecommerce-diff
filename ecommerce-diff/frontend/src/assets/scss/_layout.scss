@@ -1,0 +1,96 @@
+.container {
+  width: 100%;
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 0 $gutter-mobile;
+
+  @include media-up($bp-md) {
+    padding: 0 $gutter-tablet;
+  }
+  @include media-up($bp-lg) {
+    padding: 0 $gutter-desktop;
+  }
+}
+
+.section {
+  padding: $space-20 0;
+
+  @include media-up($bp-lg) {
+    padding: $space-24 0;
+  }
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: $space-3;
+    margin-bottom: $space-12;
+
+    @include media-up($bp-md) {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+  }
+}
+
+.divider {
+  height: 1px;
+  background: $color-border;
+  width: 100%;
+}
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  background: $color-bg;
+
+  &--admin {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+
+    @media (max-width: $bp-lg) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+.app-shell__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.page {
+  flex: 1;
+  padding: $space-8 $gutter-mobile $space-16;
+
+  @include media-up($bp-md) {
+    padding: $space-10 $gutter-tablet $space-20;
+  }
+
+  @include media-up($bp-lg) {
+    padding: $space-12 $gutter-desktop $space-24;
+  }
+}
+
+.glass-card {
+  @include glass(0.65, 28px);
+  border-radius: $radius-lg;
+  padding: $space-6;
+  box-shadow: $shadow-card;
+}
+
+.surface {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-lg;
+}
+
+.empty-state {
+  text-align: center;
+  padding: $space-16 $space-6;
+  color: $color-on-bg-muted;
+  border: 1px dashed $color-border;
+  border-radius: $radius-lg;
+}

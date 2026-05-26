@@ -1,0 +1,71 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-2;
+  padding: 14px 28px;
+  border-radius: $radius-pill;
+  font-family: $font-label;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: $tracking-wide;
+  transition: transform $dur-base $ease-snap, background $dur-base $ease-snap,
+    box-shadow $dur-base $ease-snap, border-color $dur-base $ease-snap, color $dur-base $ease-snap;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  &--primary {
+    background: $color-white;
+    color: $color-black;
+
+    &:hover {
+      box-shadow: $glow-hard;
+    }
+  }
+
+  &--ghost {
+    border-color: $color-border-strong;
+    color: $color-on-bg;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: $color-white;
+    }
+  }
+
+  &--dark {
+    background: rgba(255, 255, 255, 0.04);
+    color: $color-on-bg;
+    border-color: $color-border;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+  }
+
+  &--icon {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: $radius-pill;
+  }
+
+  &--sm {
+    padding: 8px 16px;
+    font-size: 11px;
+  }
+
+  &--full {
+    width: 100%;
+  }
+
+  &[disabled] {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,105 @@
+// AURA design tokens — luxury futuristic black & white system.
+
+// --- Color ramp (matte black -> light) ---
+$color-bg: #0b0b0b;
+$color-bg-elev-1: #111111;
+$color-bg-elev-2: #161616;
+$color-bg-elev-3: #1c1c1c;
+$color-surface: #131313;
+$color-surface-contrast: #1f1f1f;
+$color-on-bg: #ededed;
+$color-on-bg-muted: #9c9c9c;
+$color-on-bg-faint: #6c6c6c;
+$color-border: rgba(255, 255, 255, 0.08);
+$color-border-strong: rgba(255, 255, 255, 0.18);
+$color-white: #ffffff;
+$color-black: #000000;
+
+// --- Accents (used very sparingly) ---
+$color-accent: #ffffff;
+$color-success: #6cf2a0;
+$color-danger: #ff6b6b;
+$color-warning: #ffd66b;
+
+// --- Radii ---
+$radius-xs: 6px;
+$radius-sm: 10px;
+$radius-md: 14px;
+$radius-lg: 20px;
+$radius-xl: 28px;
+$radius-pill: 999px;
+
+// --- Spacing scale (8px grid) ---
+$space-1: 4px;
+$space-2: 8px;
+$space-3: 12px;
+$space-4: 16px;
+$space-5: 20px;
+$space-6: 24px;
+$space-8: 32px;
+$space-10: 40px;
+$space-12: 48px;
+$space-16: 64px;
+$space-20: 80px;
+$space-24: 96px;
+
+// --- Type ---
+$font-display: 'Sora', 'Inter', sans-serif;
+$font-body: 'Inter', system-ui, sans-serif;
+$font-label: 'Geist', 'Inter', sans-serif;
+
+$fs-display-xl: clamp(48px, 7vw, 96px);
+$fs-display-lg: clamp(40px, 5.5vw, 72px);
+$fs-display-md: clamp(32px, 4vw, 48px);
+$fs-headline: clamp(24px, 3vw, 32px);
+$fs-title: 20px;
+$fs-body-lg: 18px;
+$fs-body: 16px;
+$fs-body-sm: 14px;
+$fs-label: 12px;
+$fs-mini: 11px;
+
+$tracking-tight: -0.04em;
+$tracking-snug: -0.02em;
+$tracking-wide: 0.15em;
+$tracking-mono: 0.02em;
+
+// --- Motion ---
+$ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-snap: cubic-bezier(0.2, 0.8, 0.2, 1);
+$dur-fast: 180ms;
+$dur-base: 300ms;
+$dur-slow: 600ms;
+
+// --- Shadows + glow ---
+$glow-soft: 0 0 32px rgba(255, 255, 255, 0.08);
+$glow-hard: 0 0 60px rgba(255, 255, 255, 0.18);
+$shadow-card: 0 30px 60px rgba(0, 0, 0, 0.45);
+$shadow-elev: 0 18px 40px rgba(0, 0, 0, 0.55);
+
+// --- Layout ---
+$container-max: 1440px;
+$content-max: 1280px;
+$gutter-desktop: 80px;
+$gutter-tablet: 40px;
+$gutter-mobile: 20px;
+
+// --- Breakpoints ---
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+$bp-2xl: 1440px;
+
+@mixin media-up($bp) {
+  @media (min-width: #{$bp}) {
+    @content;
+  }
+}
+
+@mixin glass($alpha: 0.7, $blur: 24px) {
+  background: rgba(17, 17, 17, $alpha);
+  backdrop-filter: blur($blur) saturate(140%);
+  -webkit-backdrop-filter: blur($blur) saturate(140%);
+  border: 1px solid $color-border;
+}
