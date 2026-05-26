@@ -4,7 +4,7 @@ import { ValidationPipe, ClassSerializerInterceptor, VersioningType } from '@nes
 import { ExpressAdapter } from '@nestjs/platform-express';
 import { ConfigService } from '@nestjs/config';
 import helmet from 'helmet';
-import * as express from 'express';
+import express from 'express';
 import { AppModule } from './app.module';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
 import { ResponseInterceptor } from './common/interceptors/response.interceptor';
